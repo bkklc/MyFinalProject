@@ -1,5 +1,4 @@
-﻿using Entities.Abstracts;
-using Entities.Concretes;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Abstracts
+namespace Core.DataAccess
 {
     // Generic Constraint 
     // class : referans tip olabilir
