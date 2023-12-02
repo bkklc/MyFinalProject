@@ -6,28 +6,34 @@ using DataAccess.Concretes.InMemory;
 // SOLID
 // Open Closed Principle
 // DTO = Data Transformation Object
-
-ProductTest();
-//CategoryTest();
-
+ProductManager productManager = new ProductManager(new EfProductDal());
+CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
 
 
-static void ProductTest()
+ProductTest(productManager);
+//CategoryTest(categoryManager);
+
+
+
+static void ProductTest(ProductManager productManager)
 {
-    ProductManager productManager = new ProductManager(new EfProductDal());
+    var result = productManager.GetProductDetails();
 
-    foreach (var product in productManager.GetProductDetails())
+    if (result.Success == true)
     {
-        Console.WriteLine(product.ProductName + " " + product.CategoryName);
+        foreach (var product in result.Data)
+        {
+            Console.WriteLine(product.ProductName + "/" + product.CategoryName);
+        }
     }
 
+    else Console.WriteLine(result.Message);
 
-    /*
-    foreach (var product in productManager.GetAll())
-    {
-       Console.WriteLine(product.ProductName);
-    }
-    */
+
+    //foreach (var product in productManager.GetAll())
+    //{
+    //   Console.WriteLine(product.ProductName);
+    //}
 
     /*
     foreach (var product in productManager.GetAllByCategoryId(2))
@@ -44,9 +50,9 @@ static void ProductTest()
 
 }
 
-static void CategoryTest()
+static void CategoryTest(CategoryManager categoryManager)
 {
-    CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+    
     foreach (var category in categoryManager.GetAll())
     {
         Console.WriteLine(category.CategoryName);
