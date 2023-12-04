@@ -10,9 +10,8 @@ ProductManager productManager = new ProductManager(new EfProductDal());
 CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
 
 
-ProductTest(productManager);
+//ProductTest(productManager);
 //CategoryTest(categoryManager);
-
 
 
 static void ProductTest(ProductManager productManager)
