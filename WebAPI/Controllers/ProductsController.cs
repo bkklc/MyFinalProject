@@ -1,9 +1,5 @@
 ﻿using Business.Abstracts;
-using Business.Concretes;
-using Core.Utilities.Results;
-using DataAccess.Concretes.EntityFramework;
 using Entities.Concretes;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -21,8 +17,6 @@ namespace WebAPI.Controllers
         {
             _productService = productService;
         }
-
-
 
 
         [HttpGet("getall")]
